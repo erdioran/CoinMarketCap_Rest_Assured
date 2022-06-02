@@ -21,7 +21,6 @@ public class BaseTest {
     private static final Logger LOGGER = LogManager.getLogger(BaseTest.class);
 
     public static RequestSpecification requestSpec;
-    public static RequestSpecification requestSpecPublicApi;
 
     @BeforeMethod(alwaysRun = true)
     public void startReport(Method method, ITestResult result, ITestContext context) {
@@ -51,8 +50,7 @@ public class BaseTest {
     public void createApiHeaders() {
 
         RequestSpecBuilder builder = new RequestSpecBuilder();
-        builder.addHeader("Authorization", getToken());
-        builder.addHeader("Content-Type", "application/json");
+        builder.addHeader(X_CMC_PRO_API_KEY, key_value);
         builder.setBaseUri(url);
 
         requestSpec = builder.build();
