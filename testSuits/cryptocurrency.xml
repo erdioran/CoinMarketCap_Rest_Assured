@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+    </listeners>
+    <test parallel="methods" thread-count="1"  name="com.erdioran.testCases.Cryptocurrency">
+        <classes>
+            <class name="com.erdioran.testCases.Cryptocurrency">
+                <methods>
+                    <include name="getAirdropsAll_200"/>
+                    <include name="getAirdropsAll_400"/>
+                    <include name="getAirdrop_200"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
