@@ -16,12 +16,11 @@ public class ExtentManager {
         String reportFileName = "Test_Report_".concat(timeStamp).concat(".html");
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("extent-reports/" + reportFileName);
 
-        htmlReporter.config().setReportName("Evam QA BE Rest Assured Repors");
-        htmlReporter.config().setDocumentTitle("Evam QA BE Rest Assured Repors");
+        htmlReporter.config().setReportName("CoinMarketCap Erdi Oran BE Rest Assured Reports");
+        htmlReporter.config().setDocumentTitle("CoinMarketCap Erdi Oran BE Rest Assured Reports");
         EXTENT_REPORTS.attachReporter(htmlReporter);
         EXTENT_REPORTS.setSystemInfo("Suite File", Constant.xmlSuiteFileName);
-        EXTENT_REPORTS.setSystemInfo("Author", "Evam automation team");
-        EXTENT_REPORTS.setSystemInfo("Environment", DataManager.getData("common.url"));
+        EXTENT_REPORTS.setSystemInfo("Author", "Erdi Oran");
     }
 
     private ExtentManager() {
