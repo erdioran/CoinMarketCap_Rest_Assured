@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <listeners>
+    </listeners>
+    <test parallel="methods" thread-count="1"  name="com.erdioran.testCases.Authenticate">
+        <classes>
+            <class name="com.erdioran.testCases.Authenticate">
+                <methods>
+                    <include name="successLogin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
