@@ -2,6 +2,7 @@ package com.erdioran.testCases;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.erdioran.base.BaseTest;
+import com.erdioran.utils.ExtentTestManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import io.restassured.RestAssured;
@@ -9,6 +10,8 @@ import io.restassured.response.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hamcrest.Matchers;
+import org.testng.ITestContext;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import static com.erdioran.projectUtils.Environments.*;
 import static com.erdioran.projectUtils.ResponseMessage.*;
@@ -69,6 +72,12 @@ public class Cryptocurrency extends BaseTest {
     //******************************************************************************************************************
     //******************************************************************************************************************
 
+    @BeforeMethod()
+    public void beforeCryptocurrency(ITestContext context) {
+        ExtentTest test = ExtentTestManager.getNode();
+        test.assignCategory("Cryptocurrency Tests");
+
+    }
 
     @Test(description = "List All Airdrops", priority = 1)
     public void getAirdropsAll_200() {
@@ -103,6 +112,9 @@ public class Cryptocurrency extends BaseTest {
         }
 
          */
+
+
+        ExtentTestManager.getNode().pass("List airdrops 200 pass");
     }
 
     @Test(description = "List All Airdrops 400", priority = 2)
@@ -126,7 +138,7 @@ public class Cryptocurrency extends BaseTest {
         String reponseBody = response.getBody().asString();
         System.out.println("reponseBody: " + reponseBody);
 
-
+        ExtentTestManager.getNode().pass("Airdrops 400 pass");
     }
 
     @Test(description = "List Specific Airdrop 200", priority = 3)
@@ -150,6 +162,8 @@ public class Cryptocurrency extends BaseTest {
 
         String reponseBody = response.getBody().asString();
         System.out.println("reponseBody: " + reponseBody);
+
+        ExtentTestManager.getNode().pass("List specific airdrop 200 pass");
 
 
     }
